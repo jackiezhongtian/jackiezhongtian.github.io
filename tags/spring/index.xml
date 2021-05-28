@@ -37,7 +37,7 @@
     <item>
       <title>Spring Cloud 中的消息总线</title>
       <link>https://jackiezhongtian.github.io:443/post/bus-1/</link>
-      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jackiezhongtian.github.io:443/post/bus-1/</guid>
       <description>消息总线：Spring Cloud Bus ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设计实践。基于总线的设计，借鉴了计算机内部硬件组成的设计</description>
