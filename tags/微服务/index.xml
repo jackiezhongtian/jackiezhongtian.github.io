@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微服务 on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+    <description>Recent content in 微服务 on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>云原生与微服务是啥关系？</title>
+      <link>https://jackiezhongtian.github.io:443/post/sc-1/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/sc-1/</guid>
+      <description>要了解云原生与微服务是啥关系？我们首先需要了解一下CNCF，即云原生计算基金会，2015年由谷歌牵头成立，基金会成员目前已有一百多企业与机构</description>
+    </item>
+    
+  </channel>
+</rss>

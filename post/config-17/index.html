@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+<head><script src="/livereload.js?port=443&amp;mindelay=10&amp;v=2" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>配置中心 Spring Cloud Config：通过HTTP URI指定Config Server - Jackie</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="CZZ" />
+  <meta name="description" content="开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功" />
+
+  <meta name="keywords" content="Hugo, tech, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<link rel="canonical" href="https://jackiezhongtian.github.io:443/post/config-17/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.b3a8813c06e6d785beba22bf8264e174fa2cb3a396b22f9ba24e2c00c18aaf7f.css" integrity="sha256-s6iBPAbm14W&#43;uiK/gmThdPoss6OWsi&#43;bok4sAMGKr38=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="配置中心 Spring Cloud Config：通过HTTP URI指定Config Server" />
+<meta property="og:description" content="开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jackiezhongtian.github.io:443/post/config-17/" />
+<meta property="article:published_time" content="2020-12-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-24T00:00:00+00:00" /><meta property="og:site_name" content="Jackie" />
+<meta itemprop="name" content="配置中心 Spring Cloud Config：通过HTTP URI指定Config Server">
+<meta itemprop="description" content="开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功">
+<meta itemprop="datePublished" content="2020-12-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-12-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2524">
+
+
+
+<meta itemprop="keywords" content="Spring Cloud Config,Java,Spring," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="配置中心 Spring Cloud Config：通过HTTP URI指定Config Server"/>
+<meta name="twitter:description" content="开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Jackie</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/about/">About</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Jackie
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/">Home</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://jackiezhongtian.github.io:443/about/">About</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">配置中心 Spring Cloud Config：通过HTTP URI指定Config Server</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-12-24" class="post-time">
+          2020-12-24
+        </time>
+        <div class="post-category">
+            <a href="https://jackiezhongtian.github.io:443/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"> 微服务 </a>
+            <a href="https://jackiezhongtian.github.io:443/categories/spring/"> Spring </a>
+            <a href="https://jackiezhongtian.github.io:443/categories/%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/"> 配置中心 </a>
+            
+          </div>
+        
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#通过http-uri指定config-server">通过HTTP URI指定Config Server</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功能的代码，还需要连接资源和其它应用，经常有很多需要在外部配置的数据去调整应用的行为，如切换不同的数据库，设置功能开关等。随着微服务的不断增加，需要系统具备可伸缩和可扩展性，除此之外就是管理相当多的服务实例的配置数据。在应用的开发阶段由各个服务自治，但是到了生产环境之后会给运维带来很大的麻烦，特别是微服务的规模比较大，配置的更新更为麻烦。为此，系统需要建立一个统一的配置管理中心。</p>
+<h3 id="通过http-uri指定config-server">通过HTTP URI指定Config Server</h3>
+<p>重试注解指定了拦截器的配置<code>configServerRetryInterceptor</code>，这对象的初始化，在前面已经讲过。<code>ConfigServicePropertySourceLocator</code>实质是一个属性资源定位器，其主要方法是<code>#locate(Environment environment)</code>。首先用当前运行应用的环境的application、profile和label替换configClientProperties中的占位符并初始化RestTemplate，然后遍历labels数组直到获取到有效的配置信息，最后还会根据是否快速失败进行重试。主要流程图如下所示：</p>
+<p><img src="/img/config/locatorconfig.jpg" alt="locate" title="locate处理流程"></p>
+<p><code>#locate(Environment environment)</code>调用<code>#getRemoteEnvironment</code>方法通过http的方式获取远程服务器上的配置数据。实现过程为，首先替换请求路径path中占位符，然后进行头部headers组装，组装好了就可以发送请求，最后返回结果。
+在上面的实现中，我们看到获取到的配置信息存放在<code>CompositePropertySource</code>，那是如何使用它的呢？这边补充另一个重要的类是PropertySourceBootstrapConfiguration，它实现了ApplicationContextInitializer接口，该接口会在应用上下文刷新之前<code>refresh()</code>被回调，从而执行初始化操作，应用启动后的调用栈如下：</p>
+<pre><code>SpringApplicationBuilder.run() -&gt; SpringApplication.run() -&gt; SpringApplication.createAndRefreshContext() -&gt; SpringApplication.applyInitializers() -&gt; PropertySourceBootstrapConfiguration.initialize()
+</code></pre><p>而上述<code>ConfigServicePropertySourceLocator</code>的locate方法会在<code>PropertySourceBootstrapConfiguration.#initialize</code>中被调用，从而保证上下文在刷新之前能够拿到必要的配置信息。具体看一下initialize方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PropertySourceBootstrapConfiguration</span> <span style="color:#66d9ef">implements</span>
+		ApplicationContextInitializer<span style="color:#f92672">&lt;</span>ConfigurableApplicationContext<span style="color:#f92672">&gt;,</span> Ordered <span style="color:#f92672">{</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initialize</span><span style="color:#f92672">(</span>ConfigurableApplicationContext applicationContext<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		CompositePropertySource composite <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CompositePropertySource<span style="color:#f92672">(</span>
+				BOOTSTRAP_PROPERTY_SOURCE_NAME<span style="color:#f92672">);</span>
+		AnnotationAwareOrderComparator<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">propertySourceLocators</span><span style="color:#f92672">);</span>
+		<span style="color:#66d9ef">boolean</span> empty <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+		ConfigurableEnvironment environment <span style="color:#f92672">=</span> applicationContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getEnvironment</span><span style="color:#f92672">();</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>PropertySourceLocator locator <span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">propertySourceLocators</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			PropertySource<span style="color:#f92672">&lt;?&gt;</span> source <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+			source <span style="color:#f92672">=</span> locator<span style="color:#f92672">.</span><span style="color:#a6e22e">locate</span><span style="color:#f92672">(</span>environment<span style="color:#f92672">);</span>
+			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>source <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				<span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+			<span style="color:#f92672">}</span>
+			composite<span style="color:#f92672">.</span><span style="color:#a6e22e">addPropertySource</span><span style="color:#f92672">(</span>source<span style="color:#f92672">);</span>
+			empty <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>empty<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			MutablePropertySources propertySources <span style="color:#f92672">=</span> environment<span style="color:#f92672">.</span><span style="color:#a6e22e">getPropertySources</span><span style="color:#f92672">();</span>
+			String logConfig <span style="color:#f92672">=</span> environment<span style="color:#f92672">.</span><span style="color:#a6e22e">resolvePlaceholders</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${logging.config:}&#34;</span><span style="color:#f92672">);</span>
+			LogFile logFile <span style="color:#f92672">=</span> LogFile<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>environment<span style="color:#f92672">);</span>
+			<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>propertySources<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>BOOTSTRAP_PROPERTY_SOURCE_NAME<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+				propertySources<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>BOOTSTRAP_PROPERTY_SOURCE_NAME<span style="color:#f92672">);</span>
+			<span style="color:#f92672">}</span>
+			insertPropertySources<span style="color:#f92672">(</span>propertySources<span style="color:#f92672">,</span> composite<span style="color:#f92672">);</span>
+			reinitializeLoggingSystem<span style="color:#f92672">(</span>environment<span style="color:#f92672">,</span> logConfig<span style="color:#f92672">,</span> logFile<span style="color:#f92672">);</span>
+			setLogLevels<span style="color:#f92672">(</span>environment<span style="color:#f92672">);</span>
+			handleIncludedProfiles<span style="color:#f92672">(</span>environment<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>下面我们看一下，在<code>initialize</code>方法中进行了哪些操作。</p>
+<ul>
+<li>根据默认的 AnnotationAwareOrderComparator 排序规则对propertySourceLocators数组进行排序</li>
+<li>获取运行的环境上下文ConfigurableEnvironment</li>
+<li>遍历propertySourceLocators时
+<ul>
+<li>调用 locate 方法，传入获取的上下文environment</li>
+<li>将source添加到PropertySource的链表中</li>
+<li>设置source是否为空的标识标量empty</li>
+</ul>
+</li>
+<li>source不为空的情况，才会设置到environment中
+<ul>
+<li>返回Environment的可变形式，可进行的操作如addFirst、addLast</li>
+<li>移除propertySources中的bootstrapProperties</li>
+<li>根据config server覆写的规则，设置propertySources</li>
+<li>处理多个active profiles的配置信息</li>
+</ul>
+</li>
+</ul>
+<p>如上过程，即可将从指定的Config Server	 拉取的配置信息应用到我们的客户端服务中。</p>
+<h4 id="通过服务发现指定config-server">通过服务发现指定Config Server</h4>
+<p>通过服务发现指定Config Server，Config Client在启动时，首先会通过服务发现找到Config Server，然后从Config Server拉取其相应的配置信息，并用这些远端的属性资源初始化好Spring的环境。<br>
+如果你使用了服务发现组件，如Eureka 、Spring Cloud Consul，需要设置 <code>spring.cloud.config.discovery.enabled=true</code> ，因为默认的是HTTP URI的方式，导致客户端应用不能利用服务注册。<br>
+所有的客户端应用需要配置正确的服务发现信息。比如使用Spring Cloud Netflix，你需要指定Eureka服务器的地址<code>eureka.client.serviceUrl.defaultZone</code>。在启动时定位服务注册，这样做的开销是需要额外的网络请求。优点是Config Server实现高可用，避免单点故障。
+配置的Config Server，默认serviceId是&quot;configserver&quot;，我们可以通过在客户端中的<code>spring.cloud.config.discovery.serviceId</code>属性来更改（通常在Config Server中通过spring.application.name配置一个服务）。服务发现的客户端实现支持多种类型的metadata map，比如Eureka的 <code>eureka.instance.metadataMap</code>。Config Server的一些额外属性，需要配置在服务注册的元数据中，这样客户端才能正确连接。如果Config Server使用了基本的HTTP安全，我们可以配置证书的用户名和密码；或者是Config Server有一个上下文路径，我们可以设置 &ldquo;configPath&rdquo;。客户端关于config信息可以配置如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#f92672">eureka</span>:
+  <span style="color:#f92672">instance</span>:
+    <span style="color:#ae81ff">...</span>
+    <span style="color:#f92672">metadataMap</span>:
+      <span style="color:#f92672">user</span>: <span style="color:#ae81ff">osufhalskjrtl</span>
+      <span style="color:#f92672">password</span>: <span style="color:#ae81ff">lviuhlszvaorhvlo5847</span>
+      <span style="color:#f92672">configPath</span>: <span style="color:#ae81ff">/config</span>
+</code></pre></div><p>下面我们看一下<code>DiscoveryClientConfigServiceBootstrapConfiguration</code>中配置了哪些启动前的上下文。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@ConditionalOnProperty</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;spring.cloud.config.discovery.enabled&#34;</span><span style="color:#f92672">,</span> matchIfMissing <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Configuration</span>
+<span style="color:#a6e22e">@Import</span><span style="color:#f92672">({</span> UtilAutoConfiguration<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span> <span style="color:#f92672">})</span>
+<span style="color:#a6e22e">@EnableDiscoveryClient</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DiscoveryClientConfigServiceBootstrapConfiguration</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#a6e22e">@Bean</span>
+	<span style="color:#66d9ef">public</span> ConfigServerInstanceProvider <span style="color:#a6e22e">configServerInstanceProvider</span><span style="color:#f92672">(</span>
+			DiscoveryClient discoveryClient<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ConfigServerInstanceProvider<span style="color:#f92672">(</span>discoveryClient<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@EventListener</span><span style="color:#f92672">(</span>ContextRefreshedEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">startup</span><span style="color:#f92672">(</span>ContextRefreshedEvent event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		refresh<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@EventListener</span><span style="color:#f92672">(</span>HeartbeatEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">heartbeat</span><span style="color:#f92672">(</span>HeartbeatEvent event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>monitor<span style="color:#f92672">.</span><span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>event<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">()))</span> <span style="color:#f92672">{</span>
+			refresh<span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>主要配置了config client通过服务发现组件寻找config server服务，还配置了两种事件的监听器：上下文刷新事件和心跳事件。在获取到Config Server中的配置信息之后，剩余的过程与指定HTTP URI方式获取Config Server是一样的，在上一小节已经讲解。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CZZ</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2020-12-24
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://jackiezhongtian.github.io:443/tags/spring-cloud-config/">Spring Cloud Config</a>
+          <a href="https://jackiezhongtian.github.io:443/tags/java/">Java</a>
+          <a href="https://jackiezhongtian.github.io:443/tags/spring/">Spring</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/config-18/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">配置中心 Spring Cloud Config：ConfigServerInstanceProvider与EventListener</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/config-16/">
+            <span class="next-text nav-default">配置中心 Spring Cloud Config：Config Client详解</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:1283041800@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://twitter.com" rel="me noopener" class="iconfont"
+      title="twitter"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1264 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M1229.8616 18.043658c0 0-117.852626 63.135335-164.151872 67.344358-105.225559-164.151872-505.082682-92.598492-437.738325 223.078185C278.622548 312.675223 89.216542 47.506814 89.216542 47.506814s-117.852626 189.406006 75.762402 345.139833C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042C1179.353331 249.539887 1263.533778 123.269217 1263.533778 123.269217s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://google.com" rel="me noopener" class="iconfont"
+      title="google"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M853.333333 85.333333C900.266667 85.333333 938.666667 123.733333 938.666667 170.666667L938.666667 853.333333C938.666667 900.266667 900.266667 938.666667 853.333333 938.666667L170.666667 938.666667C123.733333 938.666667 85.333333 900.266667 85.333333 853.333333L85.333333 170.666667C85.333333 123.306667 123.733333 85.333333 170.666667 85.333333L853.333333 85.333333M853.333333 512 768 512 768 426.666667 725.333333 426.666667 725.333333 512 640 512 640 554.666667 725.333333 554.666667 725.333333 640 768 640 768 554.666667 853.333333 554.666667 853.333333 512M384 481.706667 384 554.666667 506.026667 554.666667C499.626667 584.96 469.333333 645.973333 384 645.973333 311.04 645.973333 253.013333 584.96 253.013333 512 253.013333 439.04 311.04 378.026667 384 378.026667 426.666667 378.026667 453.973333 396.373333 469.333333 411.306667L527.36 356.693333C490.666667 320 442.026667 298.666667 384 298.666667 264.96 298.666667 170.666667 392.96 170.666667 512 170.666667 631.04 264.96 725.333333 384 725.333333 506.026667 725.333333 588.373333 640 588.373333 517.973333 588.373333 503.04 588.373333 493.653333 584.96 481.706667L384 481.706667Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="http://github.com" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://jackiezhongtian.github.io:443/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2018 -
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        jackie
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

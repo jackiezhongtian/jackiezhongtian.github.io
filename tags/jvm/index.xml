@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jvm on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/tags/jvm/</link>
+    <description>Recent content in jvm on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>全的 JVM 面试知识点：运行时数据区</title>
+      <link>https://jackiezhongtian.github.io:443/post/jvm-1/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/jvm-1/</guid>
+      <description>本系列文章讲解 面试中常见的 JVM 问题。这些问题之所以常见，是因为很基础，对于一个有点逼格的程序猿来说， JVM 的相关特性和原理在工作也需要熟知。笔者也</description>
+    </item>
+    
+  </channel>
+</rss>

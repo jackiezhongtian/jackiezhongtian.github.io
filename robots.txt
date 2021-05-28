@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://jackiezhongtian.github.io:443/sitemap.xml

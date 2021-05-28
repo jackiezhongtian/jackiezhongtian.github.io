@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计模式 on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>讲透设计模式：责任链模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/designchain/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/designchain/</guid>
+      <description>责任链模式是一种对象的行为模式。 责任链模式定义 责任链模式：避免请求发送者与接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条</description>
+    </item>
+    
+    <item>
+      <title>讲透设计模式：建造者模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/designbuilder/</link>
+      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/designbuilder/</guid>
+      <description>1. 名词解释 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。 比如一台电脑包括主机、显示器、键盘等外设，这些部件组成了</description>
+    </item>
+    
+    <item>
+      <title>讲透设计模式：访问者模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/design-visitor/</link>
+      <pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/design-visitor/</guid>
+      <description>属于行为型模式。 访问者模式的定义 封装一些作用于某种数据结构中的各元素的操作，它可以在不改变这个数据结构的前提下定义作用于这些元素的新的操作。</description>
+    </item>
+    
+    <item>
+      <title>讲透设计模式：线程池模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/design-thread/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/design-thread/</guid>
+      <description>背景 Thread-Per-Message Pattern，是一种对于每个命令或请求，都分配一个线程，由这个线程执行工作。它将委托消息的一端和执行消息的一端用两个不同的线程来实现</description>
+    </item>
+    
+    <item>
+      <title>讲透设计模式：状态模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/design-state/</link>
+      <pubDate>Tue, 27 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/design-state/</guid>
+      <description>状态模式属于行为型模式。 状态模式的定义 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</description>
+    </item>
+    
+    <item>
+      <title>讲透设计模式：黑板模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/design-blackboard/</link>
+      <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/design-blackboard/</guid>
+      <description>黑板模式属于行为型的新模式。 黑板模式的定义 黑板模式是观察者模式的扩展，一种常用的架构模式。黑板模式的定义如下： 允许消息的读写同时进行，广泛地</description>
+    </item>
+    
+    <item>
+      <title>讲透设计模式：适配器模式</title>
+      <link>https://jackiezhongtian.github.io:443/post/design-adapter/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/design-adapter/</guid>
+      <description>适配器模式属于结构型模式。 适配器模式的定义 适配器模式将某个类的接口转换成客户端期望的另一个接口表示，目的是兼容性，让原本因接口不匹配的两个类</description>
+    </item>
+    
+  </channel>
+</rss>

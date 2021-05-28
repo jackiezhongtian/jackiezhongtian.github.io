@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编程基础 on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in 编程基础 on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Sat, 09 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深入 ThreadLocal</title>
+      <link>https://jackiezhongtian.github.io:443/post/threadlocal/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/threadlocal/</guid>
+      <description>ThreadLocal主要是提供线程内部的局部变量，在每个线程内随时随地可取，隔离其他线程。 1. ThreadLocal接口 1.1 ThreadLoc</description>
+    </item>
+    
+  </channel>
+</rss>

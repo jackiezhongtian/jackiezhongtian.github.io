@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Cloud Sleuth on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/tags/spring-cloud-sleuth/</link>
+    <description>Recent content in Spring Cloud Sleuth on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Mon, 25 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/spring-cloud-sleuth/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>链路追踪 trace：应用实践总结</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-10/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-10/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：Spring Cloud Sleuth集成Zipkin用MQ通信之客户端服务改进</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-9/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-9/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：Spring Cloud Sleuth集成Zipkin用MQ通信</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-8/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-8/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：Spring Cloud Sleuth集成Zipkin结果分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-7/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-7/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：Spring Cloud Sleuth集成Zipkin</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-6/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-6/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：Spring Cloud Sleuth独立实现</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-5/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-5/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：Eureka Server 和 Sleuth Client</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-4/</link>
+      <pubDate>Sun, 13 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-4/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：基础应用介绍</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-3/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-3/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：链路追踪基础概念介绍</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-2/</link>
+      <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-2/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+    <item>
+      <title>链路追踪 trace：链路追踪总体介绍</title>
+      <link>https://jackiezhongtian.github.io:443/post/trace-1/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/trace-1/</guid>
+      <description>链路追踪是分布式中一个排查问题的重要方式，Spring Cloud中的多个组件，利用这些组件构建一个微服务系统。本系列文章将会介绍Spring</description>
+    </item>
+    
+  </channel>
+</rss>

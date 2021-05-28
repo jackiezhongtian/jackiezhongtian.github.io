@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/tags/</link>
+    <description>Recent content in Tags on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>https://jackiezhongtian.github.io:443/tags/java/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://jackiezhongtian.github.io:443/tags/spring/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Bus</title>
+      <link>https://jackiezhongtian.github.io:443/tags/spring-cloud-bus/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/spring-cloud-bus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud</title>
+      <link>https://jackiezhongtian.github.io:443/tags/spring-cloud/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/spring-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>云原生</title>
+      <link>https://jackiezhongtian.github.io:443/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>微服务</title>
+      <link>https://jackiezhongtian.github.io:443/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MyBatis</title>
+      <link>https://jackiezhongtian.github.io:443/tags/mybatis/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/mybatis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://jackiezhongtian.github.io:443/tags/mysql/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编程基础</title>
+      <link>https://jackiezhongtian.github.io:443/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Config</title>
+      <link>https://jackiezhongtian.github.io:443/tags/spring-cloud-config/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/spring-cloud-config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jvm</title>
+      <link>https://jackiezhongtian.github.io:443/tags/jvm/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/jvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Security</title>
+      <link>https://jackiezhongtian.github.io:443/tags/spring-security/</link>
+      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/spring-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Sleuth</title>
+      <link>https://jackiezhongtian.github.io:443/tags/spring-cloud-sleuth/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/spring-cloud-sleuth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>设计模式</title>
+      <link>https://jackiezhongtian.github.io:443/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 27 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

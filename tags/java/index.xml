@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/tags/java/</link>
+    <description>Recent content in Java on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Cloud 中的消息总线</title>
+      <link>https://jackiezhongtian.github.io:443/post/bus-1/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/bus-1/</guid>
+      <description>消息总线：Spring Cloud Bus ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设计实践。基于总线的设计，借鉴了计算机内部硬件组成的设计</description>
+    </item>
+    
+    <item>
+      <title>深入 ThreadLocal</title>
+      <link>https://jackiezhongtian.github.io:443/post/threadlocal/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/threadlocal/</guid>
+      <description>ThreadLocal主要是提供线程内部的局部变量，在每个线程内随时随地可取，隔离其他线程。 1. ThreadLocal接口 1.1 ThreadLoc</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：快速响应失败与重试机制（完结）</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-22/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-22/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：应用进阶（下）</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-21/</link>
+      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-21/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：应用进阶（中）</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-20/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-20/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：应用进阶（上）</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-19/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-19/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：ConfigServerInstanceProvider与EventListener</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-18/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-18/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：通过HTTP URI指定Config Server</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-17/</link>
+      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-17/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：Config Client详解</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-16/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-16/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：获取Resource的端点</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-15/</link>
+      <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-15/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：Config Server提供的端点</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-14/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-14/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：获取指定服务的资源文件</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-13/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-13/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config： 组合方式获取环境配置</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-12/</link>
+      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-12/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config： 多个repos的匹配规则</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-11/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-11/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：多JGit仓库实现</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-10/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-10/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：JGit 获取最新的远端仓库配置</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-9/</link>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-9/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：JGit方式实现配置仓库</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-8/</link>
+      <pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-8/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：EnvironmentRepository接口和SearchPathLocator接口</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-7/</link>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-7/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config： 配置服务器之Config Server配置类</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-6/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-6/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+    <item>
+      <title>配置中心 Spring Cloud Config：工作原理</title>
+      <link>https://jackiezhongtian.github.io:443/post/config-5/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/config-5/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
+    </item>
+    
+  </channel>
+</rss>
