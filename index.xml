@@ -6,7 +6,7 @@
     <description>Recent content on Jackie</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>jackie</copyright>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://jackiezhongtian.github.io:443/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,40 +14,14 @@
     <item>
       <title>About</title>
       <link>https://jackiezhongtian.github.io:443/about/</link>
-      <pubDate>Mon, 20 Aug 2018 21:38:52 +0800</pubDate>
+      <pubDate>Sat, 20 Oct 2018 21:38:52 +0800</pubDate>
       
       <guid>https://jackiezhongtian.github.io:443/about/</guid>
       
-        <description>&lt;p&gt;Chong-chong 个人写字的地方。&lt;/p&gt;
-&lt;p&gt;二流程序员，三流修理工。&lt;/p&gt;
-&lt;p&gt;没有啥惊天动地的成就，期望平平淡淡过一生。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>Spring Cloud 中的消息总线</title>
-      <link>https://jackiezhongtian.github.io:443/post/bus-1/</link>
-      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/bus-1/</guid>
-      
-        <description>&lt;p&gt;消息总线：Spring Cloud Bus
-ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设计实践。基于总线的设计，借鉴了计算机内部硬件组成的设计思想：通过总线传输数据。在分布式系统中，不同子系统之间需要实现相互通信和远程调用，比较直接的方式就是“点对点”的通信方式，但是这样会暴露出一些很明显的问题：系统之间紧密耦合、配置和引用混乱、服务调用关系错综复杂、难以统一管理、异构系统之间存在不兼容等。而基于总线的设计，正是为了解决上述问题。总线则作为中枢系统，提供统一的服务入口，并实现了服务统一管理、服务路由、协议转换、数据格式转换等功能。这样能够将不同系统有效地连接起来，并大大降低了连接数（每个子系统只需要和总线建立连接）和系统间连接拓扑的复杂度。&lt;/p&gt;
-&lt;p&gt;Spring Cloud 作为微服务架构综合性的解决方案，也提供了一套实现的组件Spring Cloud Bus。Spring Cloud Bus基于Spring Cloud Stream，Spring Cloud Stream屏蔽了底层消息中间件的差异性，在其之上封装成各种Binder，在上一章已经具体讲解过。通过Spring Cloud Bus，可以非常容易的搭建起消息总线，同时实现了一些消息总线中的常用功能，比如与Spring Cloud Config一起实现微服务应用配置信息的动态更新等。&lt;/p&gt;
-&lt;h3 id=&#34;应用场景设计&#34;&gt;应用场景设计&lt;/h3&gt;
-&lt;p&gt;在前面我们讲了微服务架构下，配置中心的用法与实现。配置仓库中的配置信息变更，如何即使通知到应用服务，并及时刷新上下文信息？在前面，我们的做法是引入了 &lt;code&gt;spring boot&lt;/code&gt; 监控的依赖&lt;code&gt;spring-boot-starter-actuator&lt;/code&gt;。通过其提供的&lt;code&gt;/refresh&lt;/code&gt;端点，配置到git的webhook，当提交代码到配置仓库时，将会触发钩子，使得应用服务能够刷新。&lt;/p&gt;
-&lt;p&gt;这样做，显然是不够的。微服务的数量极多，手工去维护变得极为复杂。我们在上面介绍了消息总线，利用消息代理将各个服务连接起来，将消息路由到目标服务实例。看一下我们的设计的架构图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://jackiezhongtian.github.io:443/img/bus/bus-arch.png&#34; alt=&#34;request&#34; title=&#34;配置变更通知&#34;&gt;&lt;/p&gt;
-&lt;p&gt;和之前的配置中心架构不一样的地方在于，增加了消息总线，消息总线连接了Config-Server和Config-Client。当配置提交到配置仓库时，利用webhook或者手动访问&lt;code&gt;/bus/refresh&lt;/code&gt;端点，Config-Server将会将变更消息通知到各个客户端。&lt;/p&gt;
-&lt;p&gt;主要涉及到的服务如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;配置服务器Config-Server，从配置仓库中拉取配置，注册到服务发现组件consul，并为配置客户端提供配置信息&lt;/li&gt;
-&lt;li&gt;配置客户端Config-Client-1，注册到服务发现组件consul，启动时同配置服务器拉取配置&lt;/li&gt;
-&lt;li&gt;配置客户端Config-Client-2，同上&lt;/li&gt;
-&lt;li&gt;配置仓库Config-Repo，使用的是git存储配置信息&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;下面文章我们进行相应的改写，以实施我们本文设计的方案。&lt;/p&gt;
+        <description>&lt;p&gt;早年与互联网接触，便一发不可收拾，热爱互联网，关注互联网业内的众多产品，不断扩充对行业发展趋势的认识；&lt;/p&gt;
+&lt;p&gt;除了互联网，我还热爱电影、音乐、旅游；&lt;/p&gt;
+&lt;p&gt;我简简单单；心直口快；没有华丽的外表；&lt;/p&gt;
+&lt;p&gt;没多少财富；我不喜欢做作；也不喜欢耍酷；更不喜欢说一些违心的话语；我不喜欢想象；但偶尔也生活在梦里。&lt;/p&gt;
 </description>
       
     </item>
@@ -55,7 +29,7 @@ ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设�
     <item>
       <title>云原生与微服务是啥关系？</title>
       <link>https://jackiezhongtian.github.io:443/post/sc-1/</link>
-      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jackiezhongtian.github.io:443/post/sc-1/</guid>
       
@@ -106,6 +80,229 @@ ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设�
 &lt;p&gt;虽然自动化运维工具可以降低环境搭建的复杂度，但仍然不能从根本上解决环境的问题。在看似稳定而成熟的场景下，结合使用Docker显然能带来更多的好处。&lt;/p&gt;
 &lt;p&gt;一旦拥抱了容器，这就需要一个编排框架来调度和管理容器。最常见的编排框架有Kubernetes、Mesos、DockerSwarm。Kubernetes是目前市场上最成熟的、最具扩展性的解决方案，占有最大的市场份额。Kubernetes不是Docker容器的杀手，而是推动者。更进一步地说，编排框架是容器平台的商品，它会驱动容器运行时的使用，编排框架是容器平台的关键组成部分。&lt;/p&gt;
 &lt;p&gt;持此之外，云原生还有 DevOps 和微服务两个关键的技术，我们将在下篇文章介绍。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：AbstractUserDetailsAuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-20/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-20/</guid>
+      
+        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个不断追求更强的目标，全面性、全系统的方法很重要，因为开发者永远不知道入侵者是如何对系统进行攻击。在系统安全的实现上，一般倡导使用安全层&lt;code&gt;layers of security&lt;/code&gt;，即多层次安全保证，通过连续层提供额外的安全性。每一层的安全性越强，应用程序的健壮性和安全性就越高。Java EE应用程序位于安全层的高层次，需要为它添加特定的问题域安全配置。&lt;/p&gt;
+&lt;h3 id=&#34;abstractuserdetailsauthenticationprovider&#34;&gt;AbstractUserDetailsAuthenticationProvider&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;AbstractUserDetailsAuthenticationProvider&lt;/code&gt;继承于&lt;code&gt;AuthenticationProvider&lt;/code&gt;，是最常用的用户名密码认证的&lt;code&gt;AuthenticationProvider&lt;/code&gt;抽象类，它将认证&lt;code&gt;UsernamePasswordAuthenticationToken&lt;/code&gt;(&lt;code&gt;Authentication&lt;/code&gt;的一个子类，&lt;code&gt;UsernamePasswordAuthenticationToken&lt;/code&gt;中封装了请求用户的用户名和密码用于认证。&lt;code&gt;AbstractUserDetailsAuthenticationProvider&lt;/code&gt;的默认实现为&lt;code&gt;DaoAuthenticationProvider&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;AbstractUserDetailsAuthenticationProvider#authenticate()&lt;/code&gt;方法代码如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Authentication &lt;span style=&#34;color:#a6e22e&#34;&gt;authenticate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Authentication authentication&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;throws&lt;/span&gt; AuthenticationException &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color:#75715e&#34;&gt;// 检查传递的Authentication是否为UsernamePasswordAuthenticationToken
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			Assert&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isInstanceOf&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UsernamePasswordAuthenticationToken&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+				messages&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getMessage&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(...));&lt;/span&gt;
+
+	String username &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;authentication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getPrincipal&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;NONE_PROVIDED&amp;#34;&lt;/span&gt;
+			&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+
+  	&lt;span style=&#34;color:#75715e&#34;&gt;//尝试从缓存中获取用户信息
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; cacheWasUsed &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+	UserDetails user &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;userCache&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getUserFromCache&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;username&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		cacheWasUsed &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#75715e&#34;&gt;//缓存中没有用户时，尝试从用户信息的来源获取，一般是数据库
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			user &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; retrieveUser&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;username&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+						&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UsernamePasswordAuthenticationToken&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UsernameNotFoundException notFound&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;hideUserNotFoundExceptions&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+				&lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; BadCredentialsException&lt;span style=&#34;color:#f92672&#34;&gt;(...);&lt;/span&gt;
+			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+				&lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; notFound&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+      	&lt;span style=&#34;color:#75715e&#34;&gt;//认证后返回的user为null，说明用户不存在，认证失败
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		Assert&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;notNull&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+					&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;retrieveUser returned null - a violation of the interface contract&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#75715e&#34;&gt;//认证前置处理
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		preAuthenticationChecks&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;check&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color:#75715e&#34;&gt;//该方法为抽象方法，延迟到子类实现。可以在子类中添加自定义的认证处理工作，一般是对比密码之类的。
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		additionalAuthenticationChecks&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+					&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UsernamePasswordAuthenticationToken&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;AuthenticationException exception&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;cacheWasUsed&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#75715e&#34;&gt;// 如果缓存中获取的UserDetails认证检查失败，将从用户信息来源获取用户信息进行认证检查
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			cacheWasUsed &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+			user &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; retrieveUser&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;username&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+						&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UsernamePasswordAuthenticationToken&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+				preAuthenticationChecks&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;check&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+				additionalAuthenticationChecks&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+						&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;UsernamePasswordAuthenticationToken&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; exception&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+  	&lt;span style=&#34;color:#75715e&#34;&gt;//认证后置处理
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	postAuthenticationChecks&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;check&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+   	&lt;span style=&#34;color:#75715e&#34;&gt;//如果缓存中没有该UserDetails，将其放进缓存
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;cacheWasUsed&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;userCache&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;putUserInCache&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+	Object principalToReturn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;forcePrincipalAsString&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		principalToReturn &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getUsername&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+   	&lt;span style=&#34;color:#75715e&#34;&gt;//返回认证成功的UsernamePasswordAuthenticationToken
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; createSuccessAuthentication&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;principalToReturn&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; user&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在&lt;code&gt;AbstractUserDetailsAuthenticationProvider#authenticate()&lt;/code&gt;认证方法中，仅对&lt;code&gt;UsernamePasswordAuthenticationToken&lt;/code&gt;进行认证。它将尝试从缓存或者用户信息的来源处(如数据库等)根据&lt;code&gt;UsernamePasswordAuthenticationToken.principal&lt;/code&gt;(用户名)加载用户信息&lt;code&gt;UserDetails&lt;/code&gt;，将&lt;code&gt;UsernamePasswordAuthenticationToken&lt;/code&gt;中的用户信息(用户名和密码)与&lt;code&gt;UserDetails&lt;/code&gt;中的信息进行对比认证(&lt;code&gt;additionalAuthenticationChecks()&lt;/code&gt;方法中)，如果信息一致，将调用&lt;code&gt;createSuccessAuthentication()&lt;/code&gt;返回认证成功的&lt;code&gt;UsernamePasswordAuthenticationToken&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;createSuccessAuthentication()&lt;/code&gt;方法的实现如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; Authentication &lt;span style=&#34;color:#a6e22e&#34;&gt;createSuccessAuthentication&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Object principal&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+		Authentication authentication&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; UserDetails user&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color:#75715e&#34;&gt;//返回一些必要的信息，并且设置isAuthenticated为true
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	UsernamePasswordAuthenticationToken result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; UsernamePasswordAuthenticationToken&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;
+			principal&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getCredentials&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt;
+			authoritiesMapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;mapAuthorities&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;user&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getAuthorities&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()));&lt;/span&gt;
+	result&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;setDetails&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;authentication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getDetails&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;());&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; result&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;createSuccessAuthentication()&lt;/code&gt;方法为&lt;code&gt;UsernamePasswordAuthenticationToken&lt;/code&gt;注入更丰富的用户信息以及将isAuthenticated设置为true，返回认证成功的&lt;code&gt;AuthenticationToken&lt;/code&gt;。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：AuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-19/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-19/</guid>
+      
+        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个不断追求更强的目标，全面性、全系统的方法很重要，因为开发者永远不知道入侵者是如何对系统进行攻击。在系统安全的实现上，一般倡导使用安全层&lt;code&gt;layers of security&lt;/code&gt;，即多层次安全保证，通过连续层提供额外的安全性。每一层的安全性越强，应用程序的健壮性和安全性就越高。Java EE应用程序位于安全层的高层次，需要为它添加特定的问题域安全配置。&lt;/p&gt;
+&lt;h3 id=&#34;authenticationprovider&#34;&gt;AuthenticationProvider&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;AuthenticationProvider&lt;/code&gt;是真正进行认证的工作的接口类，它将对具体的&lt;code&gt;Authentication&lt;/code&gt;进行认证工作。通过注入不同的排列组合的&lt;code&gt;AuthenticationProvider&lt;/code&gt;实现，使得&lt;code&gt;ProviderManager&lt;/code&gt;可以针对不同的请求进行可配置化的认证。&lt;/p&gt;
+&lt;p&gt;其内提供的接口如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AuthenticationProvider&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;//执行认证的具体方法
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//通常会返回一个带有credentials的被认证过的Authentication
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//当不支持认证传递过来的Authentication时，也可能返回null，然后下一个AuthenticationProvider会在ProviderManager被调用进行认证
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//认证失败会抛出AuthenticationException
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;Authentication &lt;span style=&#34;color:#a6e22e&#34;&gt;authenticate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Authentication authentication&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;throws&lt;/span&gt; AuthenticationException&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;//返回该AuthenticationProvider是否支持认证该Authentication类型
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//然而返回true也不能保证一定能进行认证，authenticate方法依然有可能会返回null
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;supports&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Class&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在spring-security中&lt;code&gt;AuthenticationProvider&lt;/code&gt;有非常多的默认实现，下面的类图展示了部分的实现类。
+&lt;img src=&#34;https://jackiezhongtian.github.io:443/img/sec/%E5%9B%BE12-4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;有用户名密码认证的&lt;code&gt;AbstractUserDetailsAuthenticationProvider&lt;/code&gt;，进行预认证的&lt;code&gt;PreAuthenticationProvider&lt;/code&gt;，使用google账号进行认证&lt;code&gt;GoogleAccountsAuthenticationProvider&lt;/code&gt;，还有匿名认证的&lt;code&gt;AnonymousAuthenticationProvider&lt;/code&gt;等等。&lt;/p&gt;
+&lt;p&gt;我们将对最常用的账号密码登陆认证的&lt;code&gt;AbstractUserDetailsAuthenticationProvider&lt;/code&gt;进行介绍，其他类型的&lt;code&gt;AuthenticationProvider&lt;/code&gt;有兴趣的读者可以自行去了解。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：ProviderManager（下）</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-18/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-18/</guid>
+      
+        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个不断追求更强的目标，全面性、全系统的方法很重要，因为开发者永远不知道入侵者是如何对系统进行攻击。在系统安全的实现上，一般倡导使用安全层&lt;code&gt;layers of security&lt;/code&gt;，即多层次安全保证，通过连续层提供额外的安全性。每一层的安全性越强，应用程序的健壮性和安全性就越高。Java EE应用程序位于安全层的高层次，需要为它添加特定的问题域安全配置。&lt;/p&gt;
+&lt;h3 id=&#34;providermanager下&#34;&gt;ProviderManager（下）&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;&lt;/code&gt;ProviderManager`中的认证流程方法实现如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Authentication &lt;span style=&#34;color:#a6e22e&#34;&gt;authenticate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Authentication authentication&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;throws&lt;/span&gt; AuthenticationException &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+	Class&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; Authentication&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; toTest &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getClass&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+	AuthenticationException lastException &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+	Authentication result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color:#75715e&#34;&gt;//循环调用AuthenticationProvider尝试对Authentication进行认证
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;AuthenticationProvider provider &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; getProviders&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#75715e&#34;&gt;//检查AuthenticationProvider是否支持对该类Authentication进行认证，
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#75715e&#34;&gt;//如果不支持，则进入下一个循环
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;provider&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;supports&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;toTest&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#75715e&#34;&gt;//注意在循环调用的过程中，如果没有认证成功，只有最后一次的捕捉的异常有效
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; provider&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;authenticate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+				&lt;span style=&#34;color:#75715e&#34;&gt;// 认证成功，为Authentication注入更丰富的用户信息
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				copyDetails&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;authentication&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; result&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+				&lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;AccountStatusException e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; e&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;InternalAuthenticationServiceException e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			prepareException&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;e&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; e&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;AuthenticationException e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			lastException &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; e&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#75715e&#34;&gt;//在AuthenticationProvider列表尝试认证失败后尝试调用parent进行认证
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; parent &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#75715e&#34;&gt;// Allow the parent to try.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; parent&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;authenticate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;ProviderNotFoundException e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;AuthenticationException e&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			lastException &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; e&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#75715e&#34;&gt;//认证成功后的清理操作或者其他操作
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;eraseCredentialsAfterAuthentication
+				&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;result &lt;span style=&#34;color:#66d9ef&#34;&gt;instanceof&lt;/span&gt; CredentialsContainer&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#75715e&#34;&gt;// Authentication is complete. Remove credentials and other secret data
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#75715e&#34;&gt;// from authentication
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;((&lt;/span&gt;CredentialsContainer&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; result&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;eraseCredentials&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
+		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#75715e&#34;&gt;//认证成功的事件广播
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		eventPublisher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;publishAuthenticationSuccess&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;result&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; result&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color:#75715e&#34;&gt;//认证失败的抛出最后一次保留的异常
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;lastException &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+		lastException &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ProviderNotFoundException&lt;span style=&#34;color:#f92672&#34;&gt;(...);&lt;/span&gt;
+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+   	&lt;span style=&#34;color:#75715e&#34;&gt;//认证失败的广播事件
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	prepareException&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;lastException&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; authentication&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; lastException&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ProviderManager#authenticate()&lt;/code&gt;方法将根据&lt;code&gt;Authentication&lt;/code&gt;的类型遍历&lt;code&gt;AuthenticationProvider&lt;/code&gt;列表，委托合适的&lt;code&gt;AuthenticationProvider&lt;/code&gt;对&lt;code&gt;Authentication&lt;/code&gt;认证的。如果认证成功，将根据认证结果为&lt;code&gt;Authentication&lt;/code&gt;注入更丰富的用户信息，如用户权限等，清理掉&lt;code&gt;Authentication&lt;/code&gt;中的敏感信息，如&lt;code&gt;Credentials&lt;/code&gt;用户凭证，最后返回认证成功的&lt;code&gt;Authentication&lt;/code&gt;；认证失败将会抛出对认证失败的异常&lt;code&gt;AuthenticationException&lt;/code&gt;。如果认证过程没有找到合适&lt;code&gt;AuthenticationProvider&lt;/code&gt;对&lt;code&gt;Authentication&lt;/code&gt;进行认证，将会抛出&lt;code&gt;ProviderNotFoundException&lt;/code&gt;异常。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Spring Cloud 中的消息总线</title>
+      <link>https://jackiezhongtian.github.io:443/post/bus-1/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/bus-1/</guid>
+      
+        <description>&lt;p&gt;消息总线：Spring Cloud Bus
+ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设计实践。基于总线的设计，借鉴了计算机内部硬件组成的设计思想：通过总线传输数据。在分布式系统中，不同子系统之间需要实现相互通信和远程调用，比较直接的方式就是“点对点”的通信方式，但是这样会暴露出一些很明显的问题：系统之间紧密耦合、配置和引用混乱、服务调用关系错综复杂、难以统一管理、异构系统之间存在不兼容等。而基于总线的设计，正是为了解决上述问题。总线则作为中枢系统，提供统一的服务入口，并实现了服务统一管理、服务路由、协议转换、数据格式转换等功能。这样能够将不同系统有效地连接起来，并大大降低了连接数（每个子系统只需要和总线建立连接）和系统间连接拓扑的复杂度。&lt;/p&gt;
+&lt;p&gt;Spring Cloud 作为微服务架构综合性的解决方案，也提供了一套实现的组件Spring Cloud Bus。Spring Cloud Bus基于Spring Cloud Stream，Spring Cloud Stream屏蔽了底层消息中间件的差异性，在其之上封装成各种Binder，在上一章已经具体讲解过。通过Spring Cloud Bus，可以非常容易的搭建起消息总线，同时实现了一些消息总线中的常用功能，比如与Spring Cloud Config一起实现微服务应用配置信息的动态更新等。&lt;/p&gt;
+&lt;h3 id=&#34;应用场景设计&#34;&gt;应用场景设计&lt;/h3&gt;
+&lt;p&gt;在前面我们讲了微服务架构下，配置中心的用法与实现。配置仓库中的配置信息变更，如何即使通知到应用服务，并及时刷新上下文信息？在前面，我们的做法是引入了 &lt;code&gt;spring boot&lt;/code&gt; 监控的依赖&lt;code&gt;spring-boot-starter-actuator&lt;/code&gt;。通过其提供的&lt;code&gt;/refresh&lt;/code&gt;端点，配置到git的webhook，当提交代码到配置仓库时，将会触发钩子，使得应用服务能够刷新。&lt;/p&gt;
+&lt;p&gt;这样做，显然是不够的。微服务的数量极多，手工去维护变得极为复杂。我们在上面介绍了消息总线，利用消息代理将各个服务连接起来，将消息路由到目标服务实例。看一下我们的设计的架构图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://jackiezhongtian.github.io:443/img/bus/bus-arch.png&#34; alt=&#34;request&#34; title=&#34;配置变更通知&#34;&gt;&lt;/p&gt;
+&lt;p&gt;和之前的配置中心架构不一样的地方在于，增加了消息总线，消息总线连接了Config-Server和Config-Client。当配置提交到配置仓库时，利用webhook或者手动访问&lt;code&gt;/bus/refresh&lt;/code&gt;端点，Config-Server将会将变更消息通知到各个客户端。&lt;/p&gt;
+&lt;p&gt;主要涉及到的服务如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;配置服务器Config-Server，从配置仓库中拉取配置，注册到服务发现组件consul，并为配置客户端提供配置信息&lt;/li&gt;
+&lt;li&gt;配置客户端Config-Client-1，注册到服务发现组件consul，启动时同配置服务器拉取配置&lt;/li&gt;
+&lt;li&gt;配置客户端Config-Client-2，同上&lt;/li&gt;
+&lt;li&gt;配置仓库Config-Repo，使用的是git存储配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面文章我们进行相应的改写，以实施我们本文设计的方案。&lt;/p&gt;
 </description>
       
     </item>
@@ -1497,229 +1694,6 @@ cloud:
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实现在之前的基础上，加上了对多个&lt;code&gt;EnvironmentRepository&lt;/code&gt;的遍历处理，整合了多个环境仓库的路径。&lt;/p&gt;
 &lt;p&gt;当使用复合环境仓库时，不同的仓库都应该包含相同的分支（label）。如果你有一个环境，当你请求Git仓库中label为master的配置数据时，然而SVN仓库并没有包含这样的一个叫做master的分支，就会导致整个请求的失败。另外需要注意的是，当从一个环境仓库获取数值失败时，都会导致复合环境仓库的失败。&lt;/p&gt;
 &lt;p&gt;除了使用 Spring Cloud提供的环境仓库，还可以自定义&lt;code&gt;EnvironmentRepository&lt;/code&gt;作为复合仓库的一部分。只需要实现&lt;code&gt;EnvironmentRepository&lt;/code&gt;接口，至于环境仓库的优先级，可以通过&lt;code&gt;Ordered&lt;/code&gt;并覆写&lt;code&gt;getOrdered&lt;/code&gt;方法，如果没有实现该接口，自定义的环境仓库的优先级默认为最低的。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config： 多个repos的匹配规则</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-11/</link>
-      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-11/</guid>
-      
-        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功能的代码，还需要连接资源和其它应用，经常有很多需要在外部配置的数据去调整应用的行为，如切换不同的数据库，设置功能开关等。随着微服务的不断增加，需要系统具备可伸缩和可扩展性，除此之外就是管理相当多的服务实例的配置数据。在应用的开发阶段由各个服务自治，但是到了生产环境之后会给运维带来很大的麻烦，特别是微服务的规模比较大，配置的更新更为麻烦。为此，系统需要建立一个统一的配置管理中心。&lt;/p&gt;
-&lt;h4 id=&#34;多个repos的匹配规则&#34;&gt;多个repos的匹配规则&lt;/h4&gt;
-&lt;p&gt;前面已经说过，&lt;code&gt;MultipleJGitEnvironmentRepository&lt;/code&gt;是环境仓库的默认实现方式，继承自&lt;code&gt;JGitEnvironmentRepository&lt;/code&gt;，支持Git地址的占位符，模式匹配以及多个仓库的配置。上面截取的代码中，定义了repos变量，该表量是一个Map类型，key对应每一个repo名字，value则是静态内部类&lt;code&gt;PatternMatchingJGitEnvironmentRepository&lt;/code&gt;。下面我们具体看一下，多个repo规则是在源码中的实现。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PatternMatchingJGitEnvironmentRepository&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; JGitEnvironmentRepository &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; pattern &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; String&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 1
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; String name&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 2
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;matches&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String label&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 3
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
-			String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; profiles &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; StringUtils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;commaDelimitedListToStringArray&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;profile&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; profiles&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;PatternMatchUtils&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;simpleMatch&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pattern&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
-						application &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; profiles&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;]))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 4
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;					&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-				&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setPattern&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; pattern&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 5
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			Collection&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; patterns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-			List&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; otherProfiles &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String p &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; pattern&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;p &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-					&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;p&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;contains&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 6
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;						patterns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;p &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/*&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-					&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-					&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;p&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;endsWith&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 7
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;						otherProfiles&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;p &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;,*&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-					&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-				&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-				patterns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;p&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			patterns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;otherProfiles&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;pattern&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; patterns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;toArray&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; String&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;]);&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
-&lt;li&gt;匹配application和profiles的模式串数组；&lt;/li&gt;
-&lt;li&gt;仓库名，默认为map的key值；&lt;/li&gt;
-&lt;li&gt;匹配application、profile与模式串是否匹配；&lt;/li&gt;
-&lt;li&gt;匹配给定模式的字符串；&lt;/li&gt;
-&lt;li&gt;pattern的setter方法，用来补全一些缺省书写格式；&lt;/li&gt;
-&lt;li&gt;缺少profile的情况， 将会补齐&amp;quot;/ * &amp;ldquo;，匹配任意的profile；&lt;/li&gt;
-&lt;li&gt;不以 * 结尾的情况，即指定了profile，默认规则会补齐&amp;rdquo;, * &amp;ldquo;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;通过模式匹配&lt;code&gt;{application}/{profile}&lt;/code&gt;，可以实现更复杂的需求，pattern可以使用通配符支持列表的形式。在&lt;code&gt;PatternMatchingJGitEnvironmentRepository&lt;/code&gt;中，由于继承自&lt;code&gt;JGitEnvironmentRepository&lt;/code&gt;，所以模式匹配这种模式实现了获取应用服务配置信息等方法。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;PatternMatchingJGitEnvironmentRepository&lt;/code&gt; 对patterns进行了预处理，在pattern的setter方法中补全一些配置缺省书写格式，如上面提到的缺省profile的情况。&lt;code&gt;matches&lt;/code&gt;方法匹配application、profile与模式串是否匹配，这边主要调用的是Spring的工具类方法进行判断。&lt;code&gt;#simpleMatch&lt;/code&gt;是Spring util中的工具类&lt;code&gt;PatternMatchUtils&lt;/code&gt;提供的方法，用于处理目标字符串与模式串是否匹配。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;simpleMatch&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String pattern&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String str&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pattern &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; str &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; firstIndex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;indexOf&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;firstIndex &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 1
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;equals&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;str&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;firstIndex &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 2
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; nextIndex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;indexOf&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;*&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; firstIndex &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 1&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;nextIndex &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 3
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;endsWith&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;));&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			String part &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; nextIndex&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 4
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;equals&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;part&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;//5
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; simpleMatch&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;nextIndex&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; partIndex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;indexOf&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;part&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 6
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;partIndex &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 7
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;simpleMatch&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;nextIndex&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;partIndex &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; part&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;())))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-					&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-				&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-				partIndex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;indexOf&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;part&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; partIndex &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 1&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; firstIndex &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-				pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; firstIndex&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;equals&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; firstIndex&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-				simpleMatch&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pattern&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;firstIndex&lt;span style=&#34;color:#f92672&#34;&gt;),&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;substring&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;firstIndex&lt;span style=&#34;color:#f92672&#34;&gt;)));&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 8
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
-&lt;li&gt;如果没有通配符，严格匹配&lt;/li&gt;
-&lt;li&gt;处理以 * 开头的情况&lt;/li&gt;
-&lt;li&gt;如果只有一个 * ，后半部分严格匹配&lt;/li&gt;
-&lt;li&gt;截断第一个 * 与第二个*之间的字符串&lt;/li&gt;
-&lt;li&gt;处理后半部分为空的情况&lt;/li&gt;
-&lt;li&gt;目标串索引到该part&lt;/li&gt;
-&lt;li&gt;索引到的情况，递归验证后续字符串，否则失败&lt;/li&gt;
-&lt;li&gt;最后将前半部分进行严格匹配，后半部分进行递归调用&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;利用Spring的工具类方法进行判断，匹配给定模式的字符串，支持以下简单模式样式：“xxx &lt;em&gt;”，“&lt;/em&gt; xxx”，“* xxx *”和“xxx * yyy”（具有任意数量的模式部分），以及完全相等的匹配模式。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config：多JGit仓库实现</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-10/</link>
-      <pubDate>Mon, 09 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-10/</guid>
-      
-        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功能的代码，还需要连接资源和其它应用，经常有很多需要在外部配置的数据去调整应用的行为，如切换不同的数据库，设置功能开关等。随着微服务的不断增加，需要系统具备可伸缩和可扩展性，除此之外就是管理相当多的服务实例的配置数据。在应用的开发阶段由各个服务自治，但是到了生产环境之后会给运维带来很大的麻烦，特别是微服务的规模比较大，配置的更新更为麻烦。为此，系统需要建立一个统一的配置管理中心。&lt;/p&gt;
-&lt;h3 id=&#34;多jgit仓库实现&#34;&gt;多JGit仓库实现&lt;/h3&gt;
-&lt;p&gt;Config Server中还可以配置多个Git仓库，服务启动时会自动读取这些配置属性，&lt;code&gt;MultipleJGitEnvironmentRepository&lt;/code&gt;是JGit实现的子类。&lt;code&gt;MultipleJGitEnvironmentRepository&lt;/code&gt;用以处理一个或多个Git仓库的环境仓储，其实现和JGit方式差异并不是很大。我们以其中的获取环境配置的&lt;code&gt;#findOne&lt;/code&gt;方法为例，比较一下和之前的&lt;code&gt;JGitEnvironmentRepository&lt;/code&gt;中实现的区别。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Environment &lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String label&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;		
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;PatternMatchingJGitEnvironmentRepository repository &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;repos&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;values&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 1
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;repository&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;matches&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 2
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;JGitEnvironmentRepository candidate &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; getRepositories&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;repository&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
-						application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-					&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-						&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;label &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// 3
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;							label &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; candidate&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getDefaultLabel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-						&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-						Environment source &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; candidate&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
-								label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-						&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;source &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-							&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; source&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-						&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-					&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-					&lt;span style=&#34;color:#75715e&#34;&gt;// ...
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-		JGitEnvironmentRepository candidate &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getRepository&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 4
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;label &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			label &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; candidate&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getDefaultLabel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;candidate &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 5
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;super&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; candidate&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
-&lt;li&gt;遍历所有的repos，MultipleJGit的实现中可能会有多个Git库；&lt;/li&gt;
-&lt;li&gt;通过应用名、profile和标签进行匹配，通过这三个参数指定了具体的应用；&lt;/li&gt;
-&lt;li&gt;label标签为空的情况，设置默认的label为master；&lt;/li&gt;
-&lt;li&gt;通过应用名、profile和标签三个参数匹配不到Git仓库时，&lt;code&gt;#getRepository&lt;/code&gt;方法没有列出，该方法则会判断repo中是否有占位符，并将占位符进行替换成实际的值，最后返回替换后的repo；&lt;/li&gt;
-&lt;li&gt;默认的git配置会执行到这一步，具体执行的是抽象SCM中的&lt;code&gt;#findOne&lt;/code&gt;方法。&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config：JGit 获取最新的远端仓库配置</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-9/</link>
-      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-9/</guid>
-      
-        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功能的代码，还需要连接资源和其它应用，经常有很多需要在外部配置的数据去调整应用的行为，如切换不同的数据库，设置功能开关等。随着微服务的不断增加，需要系统具备可伸缩和可扩展性，除此之外就是管理相当多的服务实例的配置数据。在应用的开发阶段由各个服务自治，但是到了生产环境之后会给运维带来很大的麻烦，特别是微服务的规模比较大，配置的更新更为麻烦。为此，系统需要建立一个统一的配置管理中心。&lt;/p&gt;
-&lt;h3 id=&#34;jgit-获取最新的远端仓库配置&#34;&gt;JGit 获取最新的远端仓库配置&lt;/h3&gt;
-&lt;p&gt;JGit方式作为&lt;code&gt;AbstractScmEnvironmentRepository&lt;/code&gt;子类，&lt;code&gt;#findOne&lt;/code&gt;并没有覆写。其获取配置的逻辑是：&lt;br&gt;
-1.获取指定应用的在本地仓库中的路径；
-2.根据获取的本地位置作为搜索路径；
-3.最后，获取到本地环境仓库中的配置信息。&lt;/p&gt;
-&lt;p&gt;其中，第一步的逻辑就变得极为重要了，因为这关乎获取的配置是否是最新的。在获取到Location之前，需要检查git仓库的状态，看一下代码中具体的实现。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#a6e22e&#34;&gt;refresh&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String label&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		Git git &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			git &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; createGitClient&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;shouldPull&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				FetchResult fetchStatus &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; fetch&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-				&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;deleteUntrackedBranches&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-					deleteUntrackedLocalBranches&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;fetchStatus&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getTrackingRefUpdates&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(),&lt;/span&gt; git&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-				&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-				&lt;span style=&#34;color:#75715e&#34;&gt;// checkout after fetch so we can get any new branches, tags, ect.
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				checkout&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-				&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;isBranch&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-					&lt;span style=&#34;color:#75715e&#34;&gt;// 将结果merge
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;					merge&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-					&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;isClean&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-						logger&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;warn&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The local repository is dirty...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-						resetHard&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; LOCAL_BRANCH_REF_PREFIX &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-					&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-				&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				&lt;span style=&#34;color:#75715e&#34;&gt;// 如果没有更新，则直接checkout
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;				checkout&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-			&lt;span style=&#34;color:#75715e&#34;&gt;// 返回Head Version
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; git&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getRepository&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findRef&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HEAD&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getObjectId&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;shouldPull&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Git git&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;throws&lt;/span&gt; GitAPIException &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; shouldPull&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//判断是否需要pull
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		Status gitStatus &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; git&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;call&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//获取远端git库的状态
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;boolean&lt;/span&gt; isWorkingTreeClean &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; gitStatus&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;isClean&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;();&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//状态是否有过提交
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;		String originUrl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; git&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getRepository&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getConfig&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getString&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;remote&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;origin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
-				&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;url&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;forcePull&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;isWorkingTreeClean&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//强制拉取且有提交
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;			shouldPull &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-			logDirty&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;gitStatus&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			shouldPull &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; isWorkingTreeClean &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; originUrl &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(!&lt;/span&gt;isWorkingTreeClean &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;forcePull&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Cannot pull from remote...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; shouldPull&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过检查远端仓库的git状态，进而判断本地环境仓库是否需要刷新。&lt;code&gt;#refresh&lt;/code&gt;依赖于&lt;code&gt;#shouldPull&lt;/code&gt;的状态，当有新的提交时或者配置了强制拉取，git客户端将会fetch所有的更新，并merge到所在分支或tag，更新本地环境仓库。&lt;code&gt;#refresh&lt;/code&gt;最终返回的是最新一次提交的HEAD Version。&lt;/p&gt;
 </description>
       
     </item>

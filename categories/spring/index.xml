@@ -6,7 +6,43 @@
     <description>Recent content in Spring on Jackie</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>jackie</copyright>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>云原生与微服务是啥关系？</title>
+      <link>https://jackiezhongtian.github.io:443/post/sc-1/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/sc-1/</guid>
+      <description>要了解云原生与微服务是啥关系？我们首先需要了解一下CNCF，即云原生计算基金会，2015年由谷歌牵头成立，基金会成员目前已有一百多企业与机构</description>
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：AbstractUserDetailsAuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-20/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-20/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：AuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-19/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-19/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：ProviderManager（下）</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-18/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-18/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
+    </item>
+    
     <item>
       <title>Spring Cloud 中的消息总线</title>
       <link>https://jackiezhongtian.github.io:443/post/bus-1/</link>
@@ -14,15 +50,6 @@
       
       <guid>https://jackiezhongtian.github.io:443/post/bus-1/</guid>
       <description>消息总线：Spring Cloud Bus ESB（企业服务总线）是SOA（面向服务架构）的一种常见的设计实践。基于总线的设计，借鉴了计算机内部硬件组成的设计</description>
-    </item>
-    
-    <item>
-      <title>云原生与微服务是啥关系？</title>
-      <link>https://jackiezhongtian.github.io:443/post/sc-1/</link>
-      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/sc-1/</guid>
-      <description>要了解云原生与微服务是啥关系？我们首先需要了解一下CNCF，即云原生计算基金会，2015年由谷歌牵头成立，基金会成员目前已有一百多企业与机构</description>
     </item>
     
     <item>
@@ -157,33 +184,6 @@
       <pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jackiezhongtian.github.io:443/post/config-8/</guid>
-      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config：EnvironmentRepository接口和SearchPathLocator接口</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-7/</link>
-      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-7/</guid>
-      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config： 配置服务器之Config Server配置类</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-6/</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-6/</guid>
-      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config：工作原理</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-5/</link>
-      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-5/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
     </item>
     

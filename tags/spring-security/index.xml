@@ -6,184 +6,184 @@
     <description>Recent content in Spring Security on Jackie</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>jackie</copyright>
-    <lastBuildDate>Thu, 17 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/spring-security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/spring-security/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>微服务认证与授权 Spring Security：sso 单点登录（下）</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-61/</link>
-      <pubDate>Thu, 17 Sep 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：AbstractUserDetailsAuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-20/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-61/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-20/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：sso 单点登录</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-60/</link>
-      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：AuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-19/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-60/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-19/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：OAuth2自定制化（下）</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-59/</link>
-      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：ProviderManager（下）</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-18/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-59/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-18/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：OAuth2自定制化</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-58/</link>
-      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：ProviderManager</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-17/</link>
+      <pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-58/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-17/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：配置web安全</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-57/</link>
-      <pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：Authentication 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-16/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-57/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-16/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：应用进阶之 Spring Sercurity自定制化（下）</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-56/</link>
-      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：Authentication 认证</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-15/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-56/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-15/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security： 资源服务器之间的中继机制</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-54/</link>
-      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：SecutityContextHolderStrategy 与 ThreadLocalSecurityHolderStrategy</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-14/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-54/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-14/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：应用进阶之 Spring Sercurity自定制化</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-55/</link>
-      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： SecurityContextHolder分析介绍</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-13/</link>
+      <pubDate>Thu, 30 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-55/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-13/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security： Zuul Proxy中的中继机制</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-53/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： Spring Cloud Security源码分析介绍</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-12/</link>
+      <pubDate>Thu, 30 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-53/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-12/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：OAuth2AuthenticationManager 与 ResourceServerTokenServices</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-52/</link>
-      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： Spring Cloud Security中的Security和OAuth2</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-11/</link>
+      <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-52/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-11/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：TokenExtractor</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-51/</link>
-      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： Spring Security OAuth2架构概述</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-10/</link>
+      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-51/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-10/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：ResourceServerConfigurerAdapter</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-50/</link>
-      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： Spring Security架构概述</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-9/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-50/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-9/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：OAuth2Resource资源服务器之开启资源服务器</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-49/</link>
-      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： 访问受限资源</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-8/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-49/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-8/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：TokenGrant</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-47/</link>
-      <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： 配置资源服务器</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-7/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-47/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-7/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：TokenStore</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-48/</link>
-      <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： 搭建授权服务器(下)</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-6/</link>
+      <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-48/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-6/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：OAuth2AccessToken与AuthorizationServerTokenServices</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-46/</link>
-      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： 搭建授权服务器 </title>
+      <link>https://jackiezhongtian.github.io:443/post/security-5/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-46/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-5/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：CheckTokenEndpoint</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-45/</link>
-      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security： 为什么要用 JWT </title>
+      <link>https://jackiezhongtian.github.io:443/post/security-4/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-45/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-4/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：AuthorizationEndpoint</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-44/</link>
-      <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：客户端授权类型</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-3/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-44/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-3/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：授权服务器Endpoint介绍</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-43/</link>
-      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：OAuth2 中的概念</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-2/</link>
+      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-43/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-2/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     
     <item>
-      <title>微服务认证与授权 Spring Security：BasicAuthenticationFilter HTTP BASIC认证客户端</title>
-      <link>https://jackiezhongtian.github.io:443/post/security-42/</link>
-      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      <title>微服务认证与授权 Spring Security：总体介绍</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-1/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://jackiezhongtian.github.io:443/post/security-42/</guid>
+      <guid>https://jackiezhongtian.github.io:443/post/security-1/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
     </item>
     

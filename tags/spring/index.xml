@@ -6,7 +6,34 @@
     <description>Recent content in Spring on Jackie</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>jackie</copyright>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务认证与授权 Spring Security：AbstractUserDetailsAuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-20/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-20/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：AuthenticationProvider 分析</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-19/</link>
+      <pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-19/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
+    </item>
+    
+    <item>
+      <title>微服务认证与授权 Spring Security：ProviderManager（下）</title>
+      <link>https://jackiezhongtian.github.io:443/post/security-18/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/security-18/</guid>
+      <description>开始新的系列文章更新，一起在技术的路上精进！这个系列将会介绍 Spring Cloud Security。对于一个服务系统，安全是必须需要考虑的方面。应用安全是一个</description>
+    </item>
+    
     <item>
       <title>Spring Cloud 中的消息总线</title>
       <link>https://jackiezhongtian.github.io:443/post/bus-1/</link>
@@ -157,33 +184,6 @@
       <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jackiezhongtian.github.io:443/post/config-7/</guid>
-      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config： 配置服务器之Config Server配置类</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-6/</link>
-      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-6/</guid>
-      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config：工作原理</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-5/</link>
-      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-5/</guid>
-      <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config： 配置仓库</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-3/</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-3/</guid>
       <description>开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功</description>
     </item>
     
