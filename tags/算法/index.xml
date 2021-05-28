@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Jackie</title>
+    <link>https://jackiezhongtian.github.io:443/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Jackie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>jackie</copyright>
+    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alias Method离散采样</title>
+      <link>https://jackiezhongtian.github.io:443/post/alias/</link>
+      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/alias/</guid>
+      <description>说起Alias，大家可能第一个联想到的是Linux中的Alias命令，就像中世纪那些躲在茅坑下面(是真的，起码日本有粪坑忍者，没有马桶的年代</description>
+    </item>
+    
+  </channel>
+</rss>

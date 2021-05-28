@@ -6,7 +6,7 @@
     <description>Recent content on Jackie</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>jackie</copyright>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://jackiezhongtian.github.io:443/index.xml" rel="self" type="application/rss+xml" />
     
@@ -22,6 +22,170 @@
 &lt;p&gt;除了互联网，我还热爱电影、音乐、旅游；&lt;/p&gt;
 &lt;p&gt;我简简单单；心直口快；没有华丽的外表；&lt;/p&gt;
 &lt;p&gt;没多少财富；我不喜欢做作；也不喜欢耍酷；更不喜欢说一些违心的话语；我不喜欢想象；但偶尔也生活在梦里。&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Alias Method离散采样</title>
+      <link>https://jackiezhongtian.github.io:443/post/alias/</link>
+      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/alias/</guid>
+      
+        <description>&lt;p&gt;说起Alias，大家可能第一个联想到的是Linux中的Alias命令，就像中世纪那些躲在茅坑下面(是真的，起码日本有粪坑忍者，没有马桶的年代就是社会的噩梦)进行刺杀的杀手一样，让人防不胜防，对于那些被这个命令坑过的人来说，电脑必须时刻出现在视野内，因为你不知道你身边的杀手朋友什么时候会模仿中世纪茅坑杀手在你的终端执行这样一条命令。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;alias cd=rm -rf
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;原理&#34;&gt;原理&lt;/h3&gt;
+&lt;p&gt;权重算法的本质是指定时间发生的几率，比如用户的每一次请求我有30%的几率打到服务器A，有20%的几率到服务器B，还有50%的几率到服务器C。那么给出未来十次的用户请求序列，要求给出它们会分别打到哪个服务器。&lt;/p&gt;
+&lt;p&gt;最简单的实现当然是产生一个位于0.0~1.0之间的随机数。&lt;/p&gt;
+&lt;p&gt;当随机数位于0~0.3时，请求服务器A
+当随机数位于0.3~0.5时，请求服务器B
+当随机数位于0.5~1时，请求服务器C
+这种方式实现简单，生成一个随机数，然后在对应时间上if-else判断即可，但是存在精度问题。&lt;/p&gt;
+&lt;p&gt;另一种实现方式是离散算法，通过概率分布构造几个点，[30, 50, 100]，代表三个区间，再生成1~100的整数，看它位于哪个区间，比如45位于[30~50]区间，就说明本次请求打到服务器B。&lt;/p&gt;
+&lt;p&gt;现在进入正题Alias Method算法，Alias Method的最终结果是要构造拼装出一个每一列合都为1的矩形，若每一列最后都要为1，那么要将所有元素都乘以概率类型的数量(此处为3)。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/pic/alias-814cfa56.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;此时右边乘以3之后的模型概率大于一或者小于一，需要用大于一去补足小于一的，而且必须满足每列必须至多只有两种组合。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/pic/alias-ba95defa.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;根据填充后的上图我们可以得到两个数组，分别是位于下方的[9/10, 6/10, 10/10]组成的Prod数组[0.9, 0.6, 1]以及上方用来填充的颜色的序号[3, 3, NULL]，第一个3代表红色列被第三列蓝色填充，第二个3代表绿色列被第三列蓝色填充，第三列概率大于1，不需要填充，为NULL。&lt;/p&gt;
+&lt;p&gt;| T | 1 | 2 | 3 | | &amp;mdash;&amp;ndash; | &amp;mdash;- | &amp;mdash;- | &amp;mdash;- | | PDF | 0.3 | 0.2 | 0.5 | | Prob | 0.9 | 0.6 | 1 | | Alias | 3 | 3 | NULL |&lt;/p&gt;
+&lt;p&gt;得到这两个数组之后，随机取其中的一列(代表事件)，比如是第二列，让Prob[2]的值与一个随机小数f比较，如果f小于Prob[2]，那么结果就是2，否则就是Alias[2]，即3，若为第三列，Prob[3]必定大于小数f，结果就是3。&lt;/p&gt;
+&lt;p&gt;可以来简单验证一下，比如随机到第三列的概率是1/3，第三列全部为红色，则第三列事件3发生概率就是1/3乘1，蓝色再其他列上部分还有覆盖，分别是1/3乘2/5和1/3乘1/10，最终的结果还是为0.5，符合原来的pdf概率。这种算法初始化较复杂，但生成随机结果的时间复杂度为O(1)，是一种性能非常好的算法。&lt;/p&gt;
+&lt;h3 id=&#34;代码实现&#34;&gt;代码实现&lt;/h3&gt;
+&lt;p&gt;下面是一个较为完整的代码实现，该实例在使用中只需要在AliasMethod中初始化好我们之前所说的Alias和Prob数组即可。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import java.util.*;
+
+/**
+ * @description 权重算法
+ */
+public final class AliasMethod {
+    /**
+     * The random number generator used to sample from the distribution.
+     */
+    private final Random random;
+    /**
+     * The probability and alias tables.
+     */
+    private final int[] alias;
+    private final double[] probability;
+
+    /**
+     * Constructs a new AliasMethod to sample from a discrete distribution and
+     * hand back outcomes based on the probability distribution.
+     * &amp;lt;p&amp;gt;
+     * Given as input a list of probabilities corresponding to outcomes 0, 1,
+     * ..., n - 1, this constructor creates the probability and alias tables
+     * needed to efficiently sample from this distribution.
+     *
+     * @param probabilities The list of probabilities.
+     */
+    public AliasMethod(List&amp;lt;Double&amp;gt; probabilities) {
+        this(probabilities, new Random());
+    }
+
+    /**
+     * Constructs a new AliasMethod to sample from a discrete distribution and
+     * hand back outcomes based on the probability distribution.
+     * &amp;lt;p&amp;gt;
+     * Given as input a list of probabilities corresponding to outcomes 0, 1,
+     * ..., n - 1, along with the random number generator that should be used
+     * as the underlying generator, this constructor creates the probability
+     * and alias tables needed to efficiently sample from this distribution.
+     *
+     * @param probabilities The list of probabilities.
+     * @param random        The random number generator
+     */
+    public AliasMethod(List&amp;lt;Double&amp;gt; probabilities, Random random) {
+        /* Begin by doing basic structural checks on the inputs. */
+        if (probabilities == null || random == null) {
+            throw new NullPointerException();
+        }
+        if (probabilities.size() == 0) {
+            throw new IllegalArgumentException(&amp;quot;Probability vector must be nonempty.&amp;quot;);
+        }
+        /* Allocate space for the probability and alias tables. */
+        probability = new double[probabilities.size()];
+        alias = new int[probabilities.size()];
+        /* Store the underlying generator. */
+        this.random = random;
+        /* Compute the average probability and cache it for later use. */
+        final double average = 1.0 / probabilities.size();
+        /* Make a copy of the probabilities list, since we will be making
+         * changes to it.
+         */
+        probabilities = new ArrayList&amp;lt;&amp;gt;(probabilities);
+        /* Create two stacks to act as worklists as we populate the tables. */
+        Deque&amp;lt;Integer&amp;gt; small = new ArrayDeque&amp;lt;&amp;gt;();
+        Deque&amp;lt;Integer&amp;gt; large = new ArrayDeque&amp;lt;&amp;gt;();
+        /* Populate the stacks with the input probabilities. */
+        for (int i = 0; i &amp;lt; probabilities.size(); ++i) {
+            /* If the probability is below the average probability, then we add
+             * it to the small list; otherwise we add it to the large list.
+             */
+            if (probabilities.get(i) &amp;gt;= average) {
+                large.add(i);
+            } else {
+                small.add(i);
+            }
+        }
+        /* As a note: in the mathematical specification of the algorithm, we
+         * will always exhaust the small list before the big list. However,
+         * due to floating point inaccuracies, this is not necessarily true.
+         * Consequently, this inner loop (which tries to pair small and large
+         * elements) will have to check that both lists aren&#39;t empty.
+         */
+        while (!small.isEmpty() &amp;amp;&amp;amp; !large.isEmpty()) {
+            /* Get the index of the small and the large probabilities. */
+            int less = small.removeLast();
+            int more = large.removeLast();
+            /* These probabilities have not yet been scaled up to be such that
+             * 1/n is given weight 1.0. We do this here instead.
+             */
+            probability[less] = probabilities.get(less) * probabilities.size();
+            alias[less] = more;
+            /* Decrease the probability of the larger one by the appropriate
+             * amount.
+             */
+            probabilities.set(more,
+                    (probabilities.get(more) + probabilities.get(less)) - average);
+            /* If the new probability is less than the average, add it into the
+             * small list; otherwise add it to the large list.
+             */
+            if (probabilities.get(more) &amp;gt;= 1.0 / probabilities.size()) {
+                large.add(more);
+            } else {
+                small.add(more);
+            }
+        }
+        /* At this point, everything is in one list, which means that the
+         * remaining probabilities should all be 1/n. Based on this, set them
+         * appropriately. Due to numerical issues, we can&#39;t be sure which
+         * stack will hold the entries, so we empty both.
+         */
+        while (!small.isEmpty()) {
+            probability[small.removeLast()] = 1.0;
+        }
+        while (!large.isEmpty()) {
+            probability[large.removeLast()] = 1.0;
+        }
+    }
+
+    /**
+     * Samples a value from the underlying distribution.
+     *
+     * @return A random value sampled from the underlying distribution.
+     */
+    public int next() {
+        /* Generate a fair die roll to determine which column to inspect. */
+        int column = random.nextInt(probability.length);
+        /* Generate a biased coin toss to determine which option to pick. */
+        boolean coinToss = random.nextDouble() &amp;lt; probability[column];
+        /* Based on the outcome, return either the column or its alias. */
+        return coinToss ? column : alias[column];
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;另外关于程序中掷骰子这个事件的模型改用什么数据结构，无疑可以使用Alias Method，感兴趣的老铁可以自己画画它的概率模型。&lt;/p&gt;
+&lt;p&gt;另外回答中还有各种千奇百怪的，比如说下面这个，使用平衡二叉搜索树，骰子的每一个面设置一个节点。&lt;/p&gt;
 </description>
       
     </item>
@@ -1617,83 +1781,6 @@ cloud:
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从上面实现来看，主要是通过构造函数设置&lt;code&gt;SearchPathLocator&lt;/code&gt;对象，传入应用名等参数调用&lt;code&gt;#getLocations&lt;/code&gt;方法得到配置资源的具体路径，&lt;code&gt;SearchPathLocator&lt;/code&gt;的实现类会保证是最新的配置仓库。因为profile可以有默认值default，在创建资源文件之前，先调用&lt;code&gt;#getProfilePaths&lt;/code&gt;方法根据profile值对path进行处理，然后由&lt;code&gt;resourceLoader&lt;/code&gt;的&lt;code&gt;#getResource(location)&lt;/code&gt;方法创建绝对路径的配置资源。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>配置中心 Spring Cloud Config： 组合方式获取环境配置</title>
-      <link>https://jackiezhongtian.github.io:443/post/config-12/</link>
-      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jackiezhongtian.github.io:443/post/config-12/</guid>
-      
-        <description>&lt;p&gt;开始新的系列文章更新，一起在技术的路上精进！将会介绍Spring Cloud 中提供了分布式配置中心Spring Cloud Config。应用服务中除了实现系统功能的代码，还需要连接资源和其它应用，经常有很多需要在外部配置的数据去调整应用的行为，如切换不同的数据库，设置功能开关等。随着微服务的不断增加，需要系统具备可伸缩和可扩展性，除此之外就是管理相当多的服务实例的配置数据。在应用的开发阶段由各个服务自治，但是到了生产环境之后会给运维带来很大的麻烦，特别是微服务的规模比较大，配置的更新更为麻烦。为此，系统需要建立一个统一的配置管理中心。&lt;/p&gt;
-&lt;h4 id=&#34;组合方式获取环境配置&#34;&gt;组合方式获取环境配置&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;CompositeConfiguration&lt;/code&gt;负责配置多个有优先级的&lt;code&gt;EnvironmentRepository&lt;/code&gt;。在有些场景下，我们可能需要从多个环境仓库中拉取配置数据。通过在config server中的application.properties或application.yml激活多个profile，比如同时从Git和SVN仓库拉取配置数据，可以配置如下的属性：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spring&lt;/span&gt;:
-  &lt;span style=&#34;color:#f92672&#34;&gt;profiles&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;active&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;git, svn&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;cloud&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;config&lt;/span&gt;:
-      &lt;span style=&#34;color:#f92672&#34;&gt;server&lt;/span&gt;:
-        &lt;span style=&#34;color:#f92672&#34;&gt;svn&lt;/span&gt;:
-          &lt;span style=&#34;color:#f92672&#34;&gt;uri&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;file:///path/to/svn/repo&lt;/span&gt;
-          &lt;span style=&#34;color:#f92672&#34;&gt;order&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;git&lt;/span&gt;:
-          &lt;span style=&#34;color:#f92672&#34;&gt;uri&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;file:///path/to/git/repo&lt;/span&gt;
-          &lt;span style=&#34;color:#f92672&#34;&gt;order&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;除了可以指定一个仓库的URI，还可以指定优先级&lt;code&gt;order&lt;/code&gt;属性。&lt;code&gt;order&lt;/code&gt;属性允许你为所有的仓库设置优先级。&lt;code&gt;order&lt;/code&gt;属性的数值越小，优先级越高。仓库之间如果包含相同的属性，优先级属性帮助解决了其潜在的任何冲突。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@Configuration&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;@ConditionalOnMissingBean&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;CompositeEnvironmentRepository&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;CompositeConfiguration&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Bean&lt;/span&gt;
-	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Primary&lt;/span&gt;
-	&lt;span style=&#34;color:#a6e22e&#34;&gt;@ConditionalOnBean&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;SearchPathLocator&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; SearchPathCompositeEnvironmentRepository &lt;span style=&#34;color:#a6e22e&#34;&gt;searchPathCompositeEnvironmentRepository&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; SearchPathCompositeEnvironmentRepository&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;environmentRepos&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Bean&lt;/span&gt;
-	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Primary&lt;/span&gt;
-	&lt;span style=&#34;color:#a6e22e&#34;&gt;@ConditionalOnMissingBean&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;SearchPathLocator&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; CompositeEnvironmentRepository &lt;span style=&#34;color:#a6e22e&#34;&gt;compositeEnvironmentRepository&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; CompositeEnvironmentRepository&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;environmentRepos&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color:#75715e&#34;&gt;//...
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上为&lt;code&gt;CompositeConfiguration&lt;/code&gt;的实现，将&lt;code&gt;SearchPathCompositeEnvironmentRepository&lt;/code&gt;和&lt;code&gt;CompositeEnvironmentRepository&lt;/code&gt;加入到Spring的上下文中，分别对应于之前讲的&lt;code&gt;SearchPathLocator&lt;/code&gt;和&lt;code&gt;EnvironmentRepository&lt;/code&gt;。下面看一下&lt;code&gt;CompositeEnvironmentRepository&lt;/code&gt;中的主要实现。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Environment &lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String label&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		Environment env &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Environment&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; String&lt;span style=&#34;color:#f92672&#34;&gt;[]{&lt;/span&gt;profile&lt;span style=&#34;color:#f92672&#34;&gt;},&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;environmentRepositories&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			Environment envRepo &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; environmentRepositories&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;);&lt;/span&gt;
-			env&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;envRepo&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getPropertySources&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;());&lt;/span&gt;
-			env&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;setVersion&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;envRepo&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getVersion&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;());&lt;/span&gt;
-			env&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;setState&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;envRepo&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getState&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;());&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;EnvironmentRepository repo &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; environmentRepositories&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				env&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;repo&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;findOne&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getPropertySources&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;());&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; env&lt;span style=&#34;color:#f92672&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;CompositeEnvironmentRepository&lt;/code&gt;实现了&lt;code&gt;EnvironmentRepository&lt;/code&gt;接口，如上为findOne方法的实现。复合环境仓库的模式也比较简单，&lt;code&gt;EnvironmentRepository&lt;/code&gt;的实现是一个数组的形式，首先判断环境仓库的数量，多个则需要遍历，最后调用每种环境仓库的findOne实现。&lt;/p&gt;
-&lt;p&gt;而&lt;code&gt;SearchPathCompositeEnvironmentRepository&lt;/code&gt;继承自&lt;code&gt;CompositeEnvironmentRepository&lt;/code&gt;，实现了&lt;code&gt;SearchPathLocator&lt;/code&gt;接口，用以获取config文件的路径。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; Locations &lt;span style=&#34;color:#a6e22e&#34;&gt;getLocations&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;String application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; String label&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-		List&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; locations &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;EnvironmentRepository repo &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;environmentRepositories&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;repo &lt;span style=&#34;color:#66d9ef&#34;&gt;instanceof&lt;/span&gt; SearchPathLocator&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-				locations&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Arrays&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;asList&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(((&lt;/span&gt;SearchPathLocator&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; repo&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getLocations&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;getLocations&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()));&lt;/span&gt;
-			&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Locations&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;application&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; profile&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; label&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; locations&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;toArray&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; String&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;locations&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()]));&lt;/span&gt;
-	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实现在之前的基础上，加上了对多个&lt;code&gt;EnvironmentRepository&lt;/code&gt;的遍历处理，整合了多个环境仓库的路径。&lt;/p&gt;
-&lt;p&gt;当使用复合环境仓库时，不同的仓库都应该包含相同的分支（label）。如果你有一个环境，当你请求Git仓库中label为master的配置数据时，然而SVN仓库并没有包含这样的一个叫做master的分支，就会导致整个请求的失败。另外需要注意的是，当从一个环境仓库获取数值失败时，都会导致复合环境仓库的失败。&lt;/p&gt;
-&lt;p&gt;除了使用 Spring Cloud提供的环境仓库，还可以自定义&lt;code&gt;EnvironmentRepository&lt;/code&gt;作为复合仓库的一部分。只需要实现&lt;code&gt;EnvironmentRepository&lt;/code&gt;接口，至于环境仓库的优先级，可以通过&lt;code&gt;Ordered&lt;/code&gt;并覆写&lt;code&gt;getOrdered&lt;/code&gt;方法，如果没有实现该接口，自定义的环境仓库的优先级默认为最低的。&lt;/p&gt;
 </description>
       
     </item>

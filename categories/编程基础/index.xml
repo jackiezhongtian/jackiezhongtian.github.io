@@ -6,7 +6,16 @@
     <description>Recent content in 编程基础 on Jackie</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>jackie</copyright>
-    <lastBuildDate>Fri, 19 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jackiezhongtian.github.io:443/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alias Method离散采样</title>
+      <link>https://jackiezhongtian.github.io:443/post/alias/</link>
+      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jackiezhongtian.github.io:443/post/alias/</guid>
+      <description>说起Alias，大家可能第一个联想到的是Linux中的Alias命令，就像中世纪那些躲在茅坑下面(是真的，起码日本有粪坑忍者，没有马桶的年代</description>
+    </item>
+    
     <item>
       <title>深入 ThreadLocal</title>
       <link>https://jackiezhongtian.github.io:443/post/threadlocal/</link>
